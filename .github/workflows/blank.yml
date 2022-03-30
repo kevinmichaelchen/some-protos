@@ -53,9 +53,9 @@ jobs:
           echo 4 "${ACCESS_TOKEN}"
           echo 5 '$ACCESS_TOKEN'
           echo 6 '${ACCESS_TOKEN}'
-          echo 7 ${{ ACCESS_TOKEN }}
-          echo 8 "${{ ACCESS_TOKEN }}"
-          echo 9 '${{ ACCESS_TOKEN }}'
+          echo 7 ${{ secrets.ACCESS_TOKEN }}
+          echo 8 "${{ secrets.ACCESS_TOKEN }}"
+          echo 9 '${{ secrets.ACCESS_TOKEN }}'
           curl -X POST https://api.github.com/repos/kevinmichaelchen/some-protos-go/dispatches \
             -H 'Accept: application/vnd.github.v3+json' \
             -u kevinmichaelchen:$ACCESS_TOKEN \
