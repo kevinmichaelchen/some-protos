@@ -44,28 +44,10 @@ jobs:
           echo test, and deploy your project.
 
       - name: Dispatch event to trigger build of Go protobufs
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BAR: ${{ secrets.FOO }}
         run: |
-          echo 1 $FOO
-          echo 2 ${FOO}
-          echo 3 "$FOO"
-          echo 4 "${FOO}"
-          echo 5 '$FOO'
-          echo 6 '${FOO}'
-          echo 7 ${{ secrets.FOO }}
-          echo 8 "${{ secrets.FOO }}"
-          echo 9 '${{ secrets.FOO }}'
-          echo 1 $BAR
-          echo 2 ${BAR}
-          echo 3 "$BAR"
-          echo 4 "${BAR}"
-          echo 5 '$BAR'
-          echo 6 '${BAR}'
           curl -X POST https://api.github.com/repos/kevinmichaelchen/some-protos-go/dispatches \
             -H 'Accept: application/vnd.github.v3+json' \
-            -u kevinmichaelchen:$ACCESS_TOKEN \
+            -u kevinmichaelchen:${{ secrets.ACCESS_TOKEN }} \
             --data '{"event_type": "build", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
 
       - name: Dispatch event to trigger build of TypeScript protobufs
@@ -74,5 +56,5 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/kevinmichaelchen/some-protos-ts/dispatches \
             -H 'Accept: application/vnd.github.v3+json' \
-            -u kevinmichaelchen:$ACCESS_TOKEN \
+            -u "kevinmichaelchen:${{ secrets.ACCESS_TOKEN }}" \
             --data '{"event_type": "build", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
