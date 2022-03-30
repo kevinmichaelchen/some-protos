@@ -49,7 +49,7 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/kevinmichaelchen/some-protos-go/dispatches \
             -H 'Accept: application/vnd.github.v3+json' \
-            -u kevinmichaelchen:"$ACCESS_TOKEN" \
+            -u kevinmichaelchen:$ACCESS_TOKEN \
             --data '{"event_type": "build", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
 
       - name: Dispatch event to trigger build of TypeScript protobufs
@@ -58,5 +58,5 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/kevinmichaelchen/some-protos-ts/dispatches \
             -H 'Accept: application/vnd.github.v3+json' \
-            -u kevinmichaelchen:"$ACCESS_TOKEN" \
+            -u kevinmichaelchen:$ACCESS_TOKEN \
             --data '{"event_type": "build", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
