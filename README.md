@@ -5,7 +5,7 @@ It has a Github Actions pipeline that will dispatch events to various other
 repositories, one per target language.
 
 You could imagine having these repos:
-* some-protos-go
+* [some-protos-go](https://github.com/kevinmichaelchen/some-protos-go)
 * some-protos-java
 * some-protos-ruby
 * etc.
