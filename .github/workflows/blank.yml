@@ -20,6 +20,11 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # The environment we want to access is "build".
+    # I wasn't sure what to name it, since we're not actually deploying code to any environment.
+    # Rather, we are simply building protobufs which will get used on all environments.
+    environment: build
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -56,5 +61,5 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/kevinmichaelchen/some-protos-ts/dispatches \
             -H 'Accept: application/vnd.github.v3+json' \
-            -u "kevinmichaelchen:${{ secrets.ACCESS_TOKEN }}" \
+            -u kevinmichaelchen:${{ secrets.ACCESS_TOKEN }} \
             --data '{"event_type": "build", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
