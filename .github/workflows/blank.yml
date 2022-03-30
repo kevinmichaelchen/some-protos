@@ -30,7 +30,8 @@ jobs:
 
       # Lint your Protobuf sources
       - uses: bufbuild/buf-lint-action@v1
-        input: idl
+        with:
+          input: idl
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
