@@ -6,6 +6,7 @@ repositories, one per target language.
 
 You could imagine having these repos:
 * [some-protos-go](https://github.com/kevinmichaelchen/some-protos-go)
+* [some-protos-ts](https://github.com/kevinmichaelchen/some-protos-ts)
 * some-protos-java
 * some-protos-ruby
 * etc.

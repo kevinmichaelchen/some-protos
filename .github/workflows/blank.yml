@@ -49,3 +49,10 @@ jobs:
             -H 'Accept: application/vnd.github.everest-preview+json' \
             -u kevinmichaelchen:${{ secrets.ACCESS_TOKEN }} \
             --data '{"event_type": "build", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+
+      - name: Dispatch event to trigger build of TypeScript protobufs
+        run: |
+          curl -X POST https://api.github.com/repos/kevinmichaelchen/some-protos-ts/dispatches \
+            -H 'Accept: application/vnd.github.everest-preview+json' \
+            -u kevinmichaelchen:${{ secrets.ACCESS_TOKEN }} \
+            --data '{"event_type": "build", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
