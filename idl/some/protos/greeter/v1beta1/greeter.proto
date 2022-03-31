@@ -18,5 +18,6 @@ message SayHelloRequest {
 
 // The response message containing the greetings
 message SayHelloResponse {
+    // The message
     string message = 1;
 }
