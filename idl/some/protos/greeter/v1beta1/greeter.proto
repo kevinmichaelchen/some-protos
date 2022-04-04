@@ -12,7 +12,7 @@ service GreeterService {
 
 // The request message containing the user's name.
 message SayHelloRequest {
-    // The user's name
+    // The user's name.
     string name = 1;
 }
 
