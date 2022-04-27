@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package some.protos.hotel.v1beta1;
+
+option go_package = "some/protos/hotel/v1beta1";
+
+import "some/protos/greeter/v1beta1/greeter.proto";
+
+service HotelService {
+  rpc Checkin (CheckinRequest) returns (CheckinResponse);
+}
+
+message CheckinRequest {}
+
+message CheckinResponse {
+  some.protos.greeter.v1beta1.SayHelloResponse hello = 1;
+}
